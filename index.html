@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Intro component with sign up form</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <section class="texts">
+    <h1>Learn to code by watching others</h1>
+    <p>
+      See how experienced developers solve problems in real-time. Watching scripted tutorials is great,
+      but understanding how developers think is invaluable.
+    </p>
+  </section>
+
+  <section class="formulario">
+    <h2>Try it free 7 days <span class="colorir">then $20/mo. thereafter</span></h2>
+
+    <form id="newform" action="https://www.linkedin.com/in/jeovacio/" method="GET">
+      <img id="img1" class="img1" src="images/icon-error.svg" alt="icon">
+      <input type="text" id="nome" name="nome" placeholder="digite seu nome" autocomplete="off">
+      <label for="nome">First Name cannot be empty</label>
+
+      <img id="img2" class="img2" src="images/icon-error.svg" alt="icon">
+      <input type="text" id="sobrenome" name="sobrenome" placeholder="seu sobrenome" autocomplete="off">
+      <label for="sobrenome">Last Name</label>
+
+      <img id="img3" class="img3" src="images/icon-error.svg" alt="icon">
+      <input type="text" id="email" name="email" placeholder="seu email" autocomplete="off">
+      <label for="email">Email Address</label>
+
+      <img id="img4" class="img4" src="images/icon-error.svg" alt="icon">
+      <input type="password" id="senha" name="senha" placeholder="crie uma senha" autocomplete="off">
+      <label for="senha">Password</label>
+
+      <input id="btn" onclick="enviar()" class="botao" type="button" value="CLAIM YOUR FREE TRIAL">
+      <span class="rodape">By clicking the button, you are agreeing to our <span class="red">Terms and Services</span></span>
+    </form>
+  </section>
+
+  <script>
+    var submit = document.getElementById('btn')
+    var formCamp1 = document.querySelector('#nome')
+    var formCamp2 = document.querySelector('#sobrenome')
+    var formCamp3 = document.querySelector('#email')
+    var formCamp4 = document.querySelector('#senha')
+    var alerta1 = document.querySelector('label[for="nome"]')
+    var alerta2 = document.querySelector('label[for="sobrenome"]')
+    var alerta3 = document.querySelector('label[for="email"]')
+    var alerta4 = document.querySelector('label[for="senha"]')
+    var image1 = document.getElementById('img1')
+    var image2 = document.getElementById('img2')
+    var image3 = document.getElementById('img3')
+    var image4 = document.getElementById('img4')
+    var extend = document.getElementById('newform')
+    
+    function enviar() { 
+      if (formCamp1.value.trim() === '' && formCamp2.value.trim() === '' && formCamp3.value.trim() === '' && formCamp4.value.trim() === '')  {
+
+        formCamp1.removeAttribute('placeholder')
+        formCamp1.style.border = '2px solid hsl(0, 100%, 74%)'
+        alerta1.style.display = 'block'
+        image1.style.display = 'inline'
+    
+        formCamp2.removeAttribute('placeholder')
+        formCamp2.style.border = '2px solid hsl(0, 100%, 74%)'
+        alerta2.style.display = 'block'
+        image2.style.display = 'inline'
+    
+        formCamp3.classList.add('invalido')
+        formCamp3.style.border = '2px solid hsl(0, 100%, 74%)'
+        formCamp3.placeholder = 'example@example.com'
+        alerta3.style.display = 'block'
+        image3.style.display = 'inline'
+    
+        formCamp4.removeAttribute('placeholder')
+        formCamp4.style.border = '2px solid hsl(0, 100%, 74%)'
+        alerta4.style.display = 'block'
+        image4.style.display = 'inline'
+    
+        extend.style.height = '475px'
+
+      } else {
+        
+        formCamp1.setAttribute('placeholder', 'digite seu nome')
+        formCamp1.style.border = ''
+        alerta1.style.display = 'none'
+        image1.style.display = 'none'
+    
+        formCamp2.setAttribute('placeholder', 'seu sobrenome')
+        formCamp2.style.border = ''
+        alerta2.style.display = 'none'
+        image2.style.display = 'none'
+    
+        formCamp3.classList.add('valido')
+        formCamp3.setAttribute('placeholder', 'seu email')
+        formCamp3.style.border = ''
+        alerta3.style.display = 'none'
+        image3.style.display = 'none'
+    
+        formCamp4.setAttribute('placeholder', 'crie uma senha')
+        formCamp4.style.border = ''
+        alerta4.style.display = 'none'
+        image4.style.display = 'none'
+    
+        extend.style.height = '420px'
+      }
+    }
+    
+    </script>
+    
+</body>
+</html>
+
